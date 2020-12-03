@@ -61,15 +61,15 @@ $ sudo systemctl enable docker
 ### Install docker-compose
 Reference: https://docs.docker.com/v17.09/compose/install/
 ```bash
-$ sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ### Run Up
 Because we need to create tunnel interface, we need to use privileged container with root permission.
 ```bash
-$ git clone https://github.com/calee0219/free5gc-docker.git
-$ cd free5gc-docker
+$ git clone 
+$ cd free5gc-docker-compose
 $ docker-compose build
 $ sudo docker-compose up # Recommand use with tmux to run in frontground
 $ sudo docker-compose up -d # Run in backbround if need
@@ -95,11 +95,11 @@ For my default setting.
 
 | NF | IP | Exposed Ports | Dependencies | Dependencies URI |
 |:-:|:-:|:-:|:-:|:-:|
-| amf | 10.200.200.3 | 29518 | nrf | nrfUri: https://nrf:29510 |
-| ausf | 10.200.200.4 | 29509 | nrf | nrfUri: https://nrf:29510 |
+| amf | 10.200.200.22 | 29518 | nrf | nrfUri: https://nrf:29510 |
+| ausf | 10.200.200.7 | 29509 | nrf | nrfUri: https://nrf:29510 |
 | n3iwf |
-| nrf | 10.200.200.2 | 29510 | db | MongoDBUrl: mongodb://db:27017 |
-| nssf | 10.200.200.5 | 29531 | nrf | nrfUri: https://nrf:29510gg/,<br/>nrfId: https://nrf:29510/nnrf-nfm/v1/nf-instances |
+| nrf | 10.200.200.10 | 29510 | db | MongoDBUrl: mongodb://db:27017 |
+| nssf | 10.200.200.8 | 29531 | nrf | nrfUri: https://nrf:29510gg/,<br/>nrfId: https://nrf:29510/nnrf-nfm/v1/nf-instances |
 | pcf | 10.200.200.6 | 29507 | nrf | nrfUri: https://nrf:29510 |
 | smf | 10.200.200.7 | 29502 | nrf, upf | nrfUri: https://nrf:29510,<br/>node_id: upf1, node_id: upf2, node_id: upf3 |
 | udm | 10.200.200.8 | 29503 | nrf | nrfUri: https://nrf:29510 |
